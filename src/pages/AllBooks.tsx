@@ -49,6 +49,8 @@ const AllBooks = () => {
     userId: user?._id,
   });
 
+  console.log(data?.requests?.length);
+
   const {
     data: booksData,
     isLoading: booksLoading,
@@ -102,7 +104,7 @@ const AllBooks = () => {
             </h3>
           </div>
           <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">
-            {booksData?.response?.totalCount || "-"}
+            {booksData?.response?.totalCount || 0}
           </h5>
         </div>
 
@@ -114,7 +116,9 @@ const AllBooks = () => {
               All Checkout Books
             </h3>
           </div>
-          <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{20}</h5>
+          <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">
+            {data?.requests?.length || 0}
+          </h5>
         </div>
       </div>
 

@@ -204,7 +204,13 @@ const Reports = () => {
                 Available Stock
               </th>
               <th className={`${styles.wide_tb_th} border-y`}>Fine</th>
-              <th className={`${styles.wide_tb_th} border-y`}>Action</th>
+              <th
+                className={`${styles.wide_tb_th} border-y ${
+                  status === "In" && "hidden"
+                }`}
+              >
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -248,7 +254,11 @@ const Reports = () => {
                     {book?.bookId?.availableStock}
                   </td>
                   <td className="text-center py-3">{book?.fine || "-"}</td>
-                  <td className="text-center p-[10px]">
+                  <td
+                    className={`text-center p-[10px] ${
+                      status === "In" && "hidden"
+                    }`}
+                  >
                     <span className="flex items-center justify-center gap-4">
                       <button
                         className={`${
@@ -307,7 +317,7 @@ const CheckInBook = ({ itemData, setOpen, refetch }: any) => {
 
   const handleConfirmRequest = async (e: any) => {
     e.preventDefault();
-    if (itemData?.fine > 0 && !isChecked) {
+    if (itemData?.status == "Overdue" && !isChecked) {
       toast.error("Pay fine to proceed");
       return;
     }

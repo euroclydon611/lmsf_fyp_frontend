@@ -110,6 +110,7 @@ const Requests = () => {
               <th className={`${styles.wide_tb_th} border-y`}>Name</th>
               <th className={`${styles.wide_tb_th} border-y`}>Title</th>
               <th className={`${styles.wide_tb_th} border-y`}>Author(s)</th>
+
               <th className={`${styles.wide_tb_th} border-y`}>
                 Requested Date
               </th>
@@ -165,10 +166,11 @@ const Requests = () => {
                     {book?.userId?.first_name + " " + book?.userId?.surname ||
                       ""}
                   </td>
+                  <td className="text-center py-3">{book?.bookId?.title}</td>
+
                   <td className="text-center py-3">
                     {(book?.bookId && mapAuthorsToString(book?.bookId)) || ""}
                   </td>
-                  <td className="text-center py-3">{book?.bookId?.title}</td>
 
                   <td className="text-center py-3">
                     {formatDate(book?.requestDate)}
