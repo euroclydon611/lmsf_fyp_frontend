@@ -27,7 +27,7 @@ const NavItems: FC<Props> = ({ activeItem, isMobile }) => {
     // },
   ];
 
-  if (user?.role === "PATRON") {
+  if ((user?.role as string) === "PATRON") {
     navLinks.push(
       {
         name: "Books",
@@ -44,7 +44,7 @@ const NavItems: FC<Props> = ({ activeItem, isMobile }) => {
     );
   }
 
-  if (user?.role === "STUDENT") {
+  if ((user?.role as string) === "STUDENT") {
     navLinks.push(
       {
         name: "Catalog",
